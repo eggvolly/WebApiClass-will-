@@ -12,7 +12,7 @@ using WebApi0911.Models;
 
 namespace WebApi0911.Controllers
 {
-    [ValidateModel]
+
     public class ProductsController : ApiController
     {
         private FabricsEntities db = new FabricsEntities();

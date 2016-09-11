@@ -9,6 +9,7 @@
 
 namespace WebApi0911.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -36,10 +37,12 @@ namespace WebApi0911.Models
         public string ZipCode { get; set; }
         public Nullable<double> Longitude { get; set; }
         public Nullable<double> Latitude { get; set; }
+        [JsonIgnore]
         public string Notes { get; set; }
     
         public virtual Occupation Occupation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<Order> Order { get; set; }
     }
 }

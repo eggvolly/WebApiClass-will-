@@ -13,6 +13,11 @@ namespace WebApi0911
         public static void Register(HttpConfiguration config)
         {
             // Web API 設定和服務
+
+            //將傳回的Json字串改成小寫開頭
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver
+                = new CamelCasePropertyNamesContractResolver();
+
             // 將 Web API 設定成僅使用 bearer 權杖驗證。
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
