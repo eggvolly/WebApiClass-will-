@@ -12,6 +12,7 @@ using WebApi0911.Models;
 
 namespace WebApi0911.Controllers
 {
+    [ValidateModel]
     public class ProductsController : ApiController
     {
         private FabricsEntities db = new FabricsEntities();
@@ -107,12 +108,15 @@ namespace WebApi0911.Controllers
         }
 
         [ResponseType(typeof(void))]
+        [ValidateModel]
+        //產生驗證，功能相當於function裡面被註解的那段
+        //只要在開頭加這個(或在controller前面加)，裡面就都可以協助做好驗證
         public IHttpActionResult PatchProduct(int id, ProductPatchViewModel product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
             var item = db.Product.Find(id);
 
             item.Price = product.Price;
