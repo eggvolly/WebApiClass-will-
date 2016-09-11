@@ -55,5 +55,18 @@ namespace WebApi0911.Controllers
         {
             return Ok(point);
         }
+
+        /// <summary>
+        /// 檢視MediaType的內容
+        /// </summary>
+        /// <returns></returns>
+        [Route("jsm")]
+        public IHttpActionResult GetSupportedMediaTypes()
+        {
+            return Ok(
+                GlobalConfiguration.Configuration.Formatters.JsonFormatter.SupportedMediaTypes);
+        }
+
+
     }
 }
